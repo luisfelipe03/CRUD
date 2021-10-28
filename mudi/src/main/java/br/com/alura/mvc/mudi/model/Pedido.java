@@ -74,5 +74,13 @@ public class Pedido {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public StatusPedido getStatus() {
+		return status;
+	}
+	
+	public void setStatus(StatusPedido status) {
+		this.status = status;
+	}
 
 }

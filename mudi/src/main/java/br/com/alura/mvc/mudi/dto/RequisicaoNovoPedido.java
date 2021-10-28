@@ -3,6 +3,7 @@ package br.com.alura.mvc.mudi.dto;
 import javax.validation.constraints.NotBlank;
 
 import br.com.alura.mvc.mudi.model.Pedido;
+import br.com.alura.mvc.mudi.model.StatusPedido;
 
 public class RequisicaoNovoPedido {
 
@@ -14,6 +15,7 @@ public class RequisicaoNovoPedido {
 	
 	@NotBlank(message = "O campo url da imagem é obrigatório")
 	private String urlImagem;
+	
 	private String descricao;
 
 	public String getNomeProduto() {
@@ -54,6 +56,7 @@ public class RequisicaoNovoPedido {
 		pedido.setDescricao(descricao);
 		pedido.setUrlProduto(urlProduto);
 		pedido.setUrlImagem(urlImagem);
+		pedido.setStatus(StatusPedido.AGUARDANDO);
 		return pedido;
 	}
 }
