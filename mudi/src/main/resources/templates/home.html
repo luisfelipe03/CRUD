@@ -9,9 +9,9 @@
 		
 		<div class="card mb-3" th:each="pedido : ${pedidos}">
 			
-			<th:block th:switch="${pedido.status.name()}">
-			<div th:case="'ENTREGUE'" class="card-header alert-dark" th:text="${pedido.nomeProduto}">Nome do produto</div>
-			<th:block>
+			
+			<div class="card-header alert-dark" th:text="${pedido.nomeProduto}">Nome do produto</div>
+			
 			
 			<div class="card-body">
 				<div class="row">
@@ -28,7 +28,7 @@
 	
 						<div>Descrição</div>
 						<div>
-							<textarea class="form-control" th:text="${pedido.descricao}">DescriÃ§Ã£o do pedido</textarea>
+							<textarea class="form-control" th:text="${pedido.descricao}">Descrição do pedido</textarea>
 						</div>
 					</div>
 	
