@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.crud.crud.model.Contatos;
+import br.com.crud.crud.model.contatos;
 import br.com.crud.crud.repository.contatoRepository;
 
 
@@ -29,30 +29,30 @@ public class crudController {
     }
 
     @GetMapping
-    public List<Contatos> listar() {
+    public List<contatos> listar() {
         return repository.findAll();
     }
 
     @GetMapping(path = { "/{id}" })
-    public ResponseEntity<Contatos> findById(@PathVariable long id) {
+    public ResponseEntity<contatos> findById(@PathVariable long id) {
         return repository.findById(id)
                 .map(record -> ResponseEntity.ok().body(record))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Contatos create(@RequestBody Contatos contatos) {
-        return repository.save(contatos);
+    public contatos create(@RequestBody contatos contato) {
+        return repository.save(contato);
     }
 
     @PutMapping(value="path/{id}")
-    public ResponseEntity<Contatos> update(@PathVariable("id") Long id, @RequestBody Contatos contatos) {
+    public ResponseEntity<contatos> update(@PathVariable("id") Long id, @RequestBody contatos contato) {
         return repository.findById(id)
            .map(record -> {
-               record.setNome(contatos.getNome());
-               record.setEmail(contatos.getEmail());
-               record.setNumero(contatos.getNumero());
-               Contatos updated = repository.save(record);
+               record.setNome(contato.getNome());
+               record.setEmail(contato.getEmail());
+               record.setNumero(contato.getNumero());
+               contatos updated = repository.save(record);
                return ResponseEntity.ok().body(updated);
            }).orElse(ResponseEntity.notFound().build());
     }
