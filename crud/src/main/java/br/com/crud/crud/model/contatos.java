@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -30,11 +28,6 @@ public class contatos {
 	@Size(min = 11, max = 11)
     @NotNull
     private String numero;
-    
-    @NotNull
-    @Min(value = 6, message = "Você tem que ter no minimo 6 anos")
-    @Max(value = 119, message = "Procure o guinness book porque você bateu o record de pessoa mais velha do mundo, idade maxima 119 anos")
-    private int idade;
     
     public Long getId() {
 		return id;
@@ -66,13 +59,5 @@ public class contatos {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
 	}
 }
